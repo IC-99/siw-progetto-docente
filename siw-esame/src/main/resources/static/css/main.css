@@ -5,22 +5,21 @@ html {
 }
 
 body {
-    
     background-color: cornsilk;
-    box-shadow: 0 0 2px rgba(0, 0, 0, 0.06);
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.06);
     color: #545454;
     font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
     font-size: 16px;
     line-height: 1.5;
     margin: 0 auto;
     max-width: 1000px;
-    padding: 2em 2em 4em;
+    padding: 1em 2em 4em;
 }
 
 h1, h2, h3, h4, h5, h6 {
     color: black;
     font-weight: 600;
-    line-height: 1.3;
+    line-height: 1.1;
 }
 
 div[class=campoForm] {
@@ -32,17 +31,39 @@ div[class=campoForm] {
 }
 
 
-#intestazione{
+.intestazione{
+    background-color: rgba(255,255,255,0.5);
+    padding: 10px;
+    align-items: center;
+    text-align: center;
     display: flex;
     flex-flow: row;
+    margin-bottom: 5%
 }
 
-#intestazione h1{
+.intestazione h1{
     flex-basis: 50%;
     text-align: center;
 }
 
-#intestazione div{
+.intestazione div{
+    display: flex;
+    flex-flow: column;
+    flex-basis: 50%;
+}
+
+.buffetdalmondo{
+    font-family: fantasy;
+    font-size: 400%;
+    width: 33%;
+}
+#home_admin{
+    display: flex;
+    flex-flow: row;
+    margin-bottom:5%;
+}
+
+#home_admin div{
     display: flex;
     flex-flow: column;
     flex-basis: 50%;

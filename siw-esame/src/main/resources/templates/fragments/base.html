@@ -9,9 +9,9 @@
 
 <body>
 	
-	<header th:fragment="intestazione_home" id="intestazione">
+	<header th:fragment="intestazione_home" class="intestazione">
 		<h1></h1>
-        <h1>Buffet dal Mondo</h1>
+        <h1 class="buffetdalmondo">Buffet dal Mondo</h1>
 		<div>
             <span th:text="${user}">username</span>
 			<a th:href="@{/logout}">
@@ -20,8 +20,10 @@
 		</div>
 	</header>
 	
-	<header th:fragment="intestazione">
-		<h1 style="text-align: center;">Buffet dal Mondo</h1>
+	<header th:fragment="intestazione" class="intestazione">
+		<h1></h1>
+        <h1 class="buffetdalmondo">Buffet dal Mondo</h1>
+        <h1></h1>
 	</header>
 	
 	<footer th:fragment="fondo(home)">

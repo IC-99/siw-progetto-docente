@@ -71,16 +71,15 @@ public class AuthenticationController {
                  BindingResult credentialsBindingResult,
                  Model model) {
 
-        // validate user and credentials fields
+        // validazione dell'utente e delle credenziali
         this.userValidator.validate(user, userBindingResult);
         this.credentialsValidator.validate(credentials, credentialsBindingResult);
 
-        // if neither of them had invalid contents, store the User and the Credentials into the DB
         if(!userBindingResult.hasErrors() && ! credentialsBindingResult.hasErrors()) {
-            // set the user and store the credentials;
-            // this also stores the User, thanks to Cascade.ALL policy
+            // la Cascade.ALL policy permette di salvare anche l'utente
             credentials.setUser(user);
             credentialsService.saveCredentials(credentials);
+            model.addAttribute("credentials", credentials);
             return "registrationSuccessful";
         }
         model.addAttribute("credentials", credentials);
