@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:replace="fragments/base.html :: headerfiles(title='Registra Utente')"> </head>
+
+<body>
+
+	<header th:replace="fragments/base.html :: intestazione"></header>
+
+   	<h1>Registrazione</h1>
+	<form th:action="@{/register}" method="POST" th:object = "${credentials}">
+	
+		<div class="campoForm">
+			<div><b>Username</b></div> 
+			<input type="text" placeholder="username" required th:field="${credentials.username}"/>
+			<span class="errore" th:if="${#fields.hasErrors('credentials.username')}" th:errors="*{credentials.username}">errore nome</span>
+		</div>
+	
+	
+	
+    <div class="box">
+       	<button class="btn btn-home" type="submit">Registra</button>
+   	</div>
+   	
+	</form>
+	
+	<footer th:replace="fragments/base.html :: fondo(home='/')"></footer>
+	
+</body>
+</html>

@@ -1,0 +1,13 @@
+package it.uniroma3.siw.esame.controller;
+
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RestController;
+
+@RestControllerApplication
+public class RestControllerApplication {
+
+	@GetMapping("/")
+	public String health() {
+		return "Hello & Welcome to CloudKatha !!!";
+	}
+}

@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:replace="fragments/base.html :: headerfiles(title='Registra Utente')"> </head>
+
+<body>
+
+	<header th:replace="fragments/base.html :: intestazione"></header>
+
+   	<h1>Registrazione</h1>
+	<form th:action="@{/register}" method="POST" >
+	
+		<div class="campoForm">
+			<div><b>Nome</b></div> 
+			<input type="text" placeholder="nome" required />
+		</div>
+		
+		<div class="campoForm">
+			<div><b>Cognome</b></div> 
+			<input type="text" placeholder="cognome" required />
+		</div>
+	
+		<div class="campoForm">
+			<div><b>Username</b></div> 
+			<input type="text" placeholder="username" required />
+		</div>
+		
+		<div class="campoForm">
+			<div><b>Password</b></div> 
+			<input type="text" placeholder="password" required />
+		</div>
+		
+	
+	
+	
+    <div class="box">
+       	<button class="btn btn-home" type="submit">Registra</button>
+   	</div>
+   	
+	</form>
+	
+	<footer th:replace="fragments/base.html :: fondo(home='/')"></footer>
+	
+</body>
+</html>
