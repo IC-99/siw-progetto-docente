@@ -13,11 +13,11 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 
-import it.uniroma3.siw.esame.controller.validator.BuffetValidator;
 import it.uniroma3.siw.esame.model.Buffet;
 import it.uniroma3.siw.esame.model.Chef;
 import it.uniroma3.siw.esame.service.BuffetService;
 import it.uniroma3.siw.esame.service.ChefService;
+import it.uniroma3.siw.esame.validator.BuffetValidator;
 
 @Controller
 public class BuffetController {

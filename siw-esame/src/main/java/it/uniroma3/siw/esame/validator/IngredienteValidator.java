@@ -1,4 +1,4 @@
-package it.uniroma3.siw.esame.controller.validator;
+package it.uniroma3.siw.esame.validator;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;

@@ -1,29 +1,29 @@
-package it.uniroma3.siw.esame.controller.validator;
+package it.uniroma3.siw.esame.validator;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 import org.springframework.validation.Errors;
 import org.springframework.validation.Validator;
 
-import it.uniroma3.siw.esame.model.Buffet;
-import it.uniroma3.siw.esame.service.BuffetService;
+import it.uniroma3.siw.esame.model.Piatto;
+import it.uniroma3.siw.esame.service.PiattoService;
 
 @Component
-public class BuffetValidator implements Validator{
+public class PiattoValidator implements Validator{
 	
 	@Autowired
-	private BuffetService buffetService;
+	private PiattoService piattoService;
 	
 	@Override
 	public void validate(Object o, Errors errors) {
-		if(this.buffetService.alreadyExists((Buffet)o)) {
-			errors.reject("buffet.duplicato");
+		if(this.piattoService.alreadyExists((Piatto)o)) {
+			errors.reject("piatto.duplicato");
 		}
 	}
 	
 	@Override
 	public boolean supports(Class<?> aClass) {
-		return Buffet.class.equals(aClass);
+		return Piatto.class.equals(aClass);
 	}
 
 }

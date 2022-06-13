@@ -1,4 +1,4 @@
-package it.uniroma3.siw.esame.controller.validator;
+package it.uniroma3.siw.esame.validator;
 
 import org.springframework.stereotype.Component;
 import org.springframework.validation.Errors;

@@ -1,4 +1,4 @@
-package it.uniroma3.siw.esame.controller.validator;
+package it.uniroma3.siw.esame.validator;
 
 
 
