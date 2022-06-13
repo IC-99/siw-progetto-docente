@@ -22,7 +22,7 @@ public class MainController {
 	public String index(Model model) {
 
 		if(!haAdmin) {
-			this.creaAdmin("Ivan", "Carlini", "ivan", "admin");
+			this.creaAdmin("Ivan", "Carlini", "ivan_admin", "admin");
 		}
 
 		return "index";

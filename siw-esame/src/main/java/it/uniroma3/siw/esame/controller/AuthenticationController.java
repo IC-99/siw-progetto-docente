@@ -37,6 +37,13 @@ public class AuthenticationController {
 	
 	@RequestMapping(value = "/login", method = RequestMethod.GET) 
 	public String showLoginForm (Model model) {
+		model.addAttribute("errore", false);
+		return "loginForm";
+	}
+	
+	@RequestMapping(value = "/login/error", method = RequestMethod.GET) 
+	public String showLoginFormAfterError (Model model) {
+		model.addAttribute("errore", true);
 		return "loginForm";
 	}
 	
@@ -76,6 +83,9 @@ public class AuthenticationController {
             credentialsService.saveCredentials(credentials);
             return "registrationSuccessful";
         }
+        model.addAttribute("credentials", credentials);
+        model.addAttribute("user", user);
         return "registerUser";
     }
+    
 }
