@@ -18,7 +18,7 @@ public class MainController {
 
 	private boolean haAdmin = false;
 
-	@RequestMapping(value = {"index"}, method = RequestMethod.GET)
+	@RequestMapping(value = {"/", "index"}, method = RequestMethod.GET)
 	public String index(Model model) {
 
 		if(!haAdmin) {
