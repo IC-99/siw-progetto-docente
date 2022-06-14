@@ -17,7 +17,7 @@ public class PiattoValidator implements Validator{
 	@Override
 	public void validate(Object o, Errors errors) {
 		if(this.piattoService.alreadyExists((Piatto)o)) {
-			errors.reject("piatto.duplicato");
+			//errors.reject("piatto.duplicato");
 		}
 	}
 	
