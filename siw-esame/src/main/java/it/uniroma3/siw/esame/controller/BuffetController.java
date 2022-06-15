@@ -30,7 +30,7 @@ public class BuffetController {
 
 	@Autowired 
 	private ChefService chefService;
-	
+
 	//ADMIN
 
 	//aggiunge un buffet
@@ -45,6 +45,24 @@ public class BuffetController {
 		}
 		model.addAttribute("fromChef", false);
 		return "admin/buffetForm.html";
+	}
+	
+	//aggiorna un buffet
+	@PostMapping("/admin/buffet/{id}/update")
+	public String updateBuffet(@PathVariable("id") Long id, @Valid @ModelAttribute("buffet") Buffet buffet, BindingResult bindingResult, Model model) {
+		Buffet oldBuffet = buffetService.findById(id);
+		this.buffetValidator.validate(buffet, bindingResult);
+		oldBuffet.getChef().toString();
+
+		if(!bindingResult.hasErrors()) {
+			oldBuffet.setNome(buffet.getNome());
+			oldBuffet.setDescrizione(buffet.getDescrizione());
+			buffetService.save(oldBuffet);
+			model.addAttribute("buffet", oldBuffet);
+			return "admin/buffet.html";
+		}
+		model.addAttribute("fromChef", false);
+		return "admin/updateBuffetForm.html";
 	}
 
 	//aggiunge un buffet allo chef
@@ -81,6 +99,15 @@ public class BuffetController {
 		return "admin/buffet.html";
 	}
 
+	//visualizza il form per la modifica di un buffet
+	@GetMapping("/admin/buffet/{id}/updateBuffetForm")
+	public String updateBuffet(@PathVariable("id") Long id, Model model) {
+		Buffet buffet = buffetService.findById(id);
+		model.addAttribute("buffet", buffet);
+		model.addAttribute("fromChef", false);
+		return "admin/updateBuffetForm.html";
+	}
+
 	//visualizza il form per l'inserimento di un buffet
 	@GetMapping("/admin/buffetForm")
 	public String getBuffetForm(Model model) {
@@ -111,9 +138,9 @@ public class BuffetController {
 		buffetService.deleteById(id);
 		return this.getBuffets(model);
 	}
-	
+
 	//USER
-	
+
 	//visualizza tutti i buffet (non specifico id)
 	@GetMapping("/buffets")
 	public String getBuffetsUser(Model model) {
@@ -121,12 +148,12 @@ public class BuffetController {
 		model.addAttribute("buffets", buffets);
 		return "user/buffets.html";
 	}
-	
+
 	//visualizza un buffet
-		@GetMapping("/buffet/{id}")
-		public String getBuffetUser(@PathVariable("id") Long id, Model model) {
-			Buffet buffet = buffetService.findById(id);
-			model.addAttribute("buffet", buffet);
-			return "user/buffet.html";
-		}
+	@GetMapping("/buffet/{id}")
+	public String getBuffetUser(@PathVariable("id") Long id, Model model) {
+		Buffet buffet = buffetService.findById(id);
+		model.addAttribute("buffet", buffet);
+		return "user/buffet.html";
+	}
 }

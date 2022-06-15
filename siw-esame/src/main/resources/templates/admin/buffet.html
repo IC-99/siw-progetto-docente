@@ -20,12 +20,12 @@
 		</div>
         <div>
             <div class="box">
-			<a th:href="@{'/admin/buffet' + '/' + ${buffet.id} + '/chefForm'}">
-       			<button class="btn btn-home" type="button">
-       				<span th:if="${buffet.chef == null}">Imposta Chef</span>
-       				<span th:if="${buffet.chef != null}">Modifica Chef</span>
-       			</button>
-   			</a>
+				<a th:href="@{'/admin/buffet' + '/' + ${buffet.id} + '/chefForm'}">
+       				<button class="btn btn-home" type="button">
+       					<span th:if="${buffet.chef == null}">Imposta Chef</span>
+       					<span th:if="${buffet.chef != null}">Modifica Chef</span>
+       				</button>
+   				</a>
    			</div>
    		</div>
    		<div>
@@ -59,6 +59,11 @@
 	<div class="box">
         <a th:href="@{'/admin/buffet' + '/' + ${buffet.id} + '/piattoForm'}">
             <button class="btn btn-home" type="button">Aggiungi Piatto</button>
+        </a>
+    </div>
+	<div class="box">
+        <a th:href="@{'/admin/buffet' + '/' + ${buffet.id} + '/updateBuffetForm'}">
+            <button class="btn btn-home" type="button">Modifica Buffet</button>
         </a>
     </div>
     

@@ -8,7 +8,7 @@
 
     <h1>Inserisci Buffet</h1>
     <div th:if="${!fromChef}">
-    	<form th:action="@{/admin/buffet}" method="post" th:object = "${buffet}">
+    	<form th:action="@{'/admin/buffet' + '/' + ${buffet.id} + '/update'}" method="post" th:object = "${buffet}">
 			<div class="errore" th:if="${#fields.hasGlobalErrors()}">
 				<p th:each="err : ${#fields.globalErrors()}" th:text="${err}">errori generici</p>
 			</div>
