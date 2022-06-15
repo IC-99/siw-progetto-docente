@@ -51,12 +51,12 @@ public class BuffetController {
 	@PostMapping("/admin/buffet/{id}/update")
 	public String updateBuffet(@PathVariable("id") Long id, @Valid @ModelAttribute("buffet") Buffet buffet, BindingResult bindingResult, Model model) {
 		Buffet oldBuffet = buffetService.findById(id);
-		this.buffetValidator.validate(buffet, bindingResult);
-		oldBuffet.getChef().toString();
+		oldBuffet.setNome(buffet.getNome());
+		oldBuffet.setDescrizione(buffet.getDescrizione());
+		
+		this.buffetValidator.validate(oldBuffet, bindingResult);
 
 		if(!bindingResult.hasErrors()) {
-			oldBuffet.setNome(buffet.getNome());
-			oldBuffet.setDescrizione(buffet.getDescrizione());
 			buffetService.save(oldBuffet);
 			model.addAttribute("buffet", oldBuffet);
 			return "admin/buffet.html";
